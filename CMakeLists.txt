@@ -21,7 +21,7 @@ set(PROJECT_SOURCES
 add_executable(JellyPlayer ${PROJECT_SOURCES})
 target_link_libraries(JellyPlayer PRIVATE Qt5::Core Qt5::Quick)
 
-target_include_directories(JellyPlayer PRIVATE ${CMAKE_CURRENT_LIST_DIR}/libvlcpp)
+target_include_directories(JellyPlayer PRIVATE "${JellyPlayer_SOURCE_DIR}/libvlcpp")
 
 IF(WIN32)
     set(VLCWINX64_DIR "$ENV{USERPROFILE}/.nuget/packages/videolan.libvlc.windows/3.0.12/build/x64/")
