@@ -1,3 +1,4 @@
 [submodule "libvlcpp"]
 	path = libvlcpp
 	url = https://code.videolan.org/videolan/libvlcpp.git
+	branch = master
