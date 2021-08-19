@@ -11,15 +11,17 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt5 COMPONENTS Core Quick REQUIRED)
+find_package(Qt5 COMPONENTS Core Quick Widgets REQUIRED)
 
 set(PROJECT_SOURCES
+    windowmanager.h
+    windowmanager.cpp
     main.cpp
     qml.qrc
 )
 
 add_executable(JellyPlayer ${PROJECT_SOURCES})
-target_link_libraries(JellyPlayer PRIVATE Qt5::Core Qt5::Quick)
+target_link_libraries(JellyPlayer PRIVATE Qt5::Core Qt5::Quick Qt5::Widgets)
 
 target_include_directories(JellyPlayer PRIVATE "${JellyPlayer_SOURCE_DIR}/libvlcpp")
 
@@ -30,3 +32,6 @@ IF(WIN32)
 ELSE()
     target_link_libraries(JellyPlayer PRIVATE vlc)
 ENDIF()
+
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/video.mp4
+     DESTINATION ${CMAKE_CURRENT_BINARY_DIR})

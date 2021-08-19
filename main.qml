@@ -2,9 +2,20 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 
 Window {
-    width: 640
-    height: 480
-    visible: true
-    title: qsTr("Hello World")
-    objectName: "myMainWindow"
+    id: topLevelWindow
+
+    width: 1280
+    height: 720
+
+    color: "#00000000"
+
+    Rectangle {
+        x: 0
+        y: 0
+
+        width: topLevelWindow.width / 10
+        height: topLevelWindow.height / 10
+
+        color: "Red"
+    }
 }
